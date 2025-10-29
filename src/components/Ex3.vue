@@ -44,7 +44,7 @@
                 )
                 .then(response=>{
                     console.log(response.data.message)
-                    this.posts=this.posts.filter(post=>post.id!=id)
+                    this.posts=this.posts.filter(post=>post.id!==id)
                 })
                 .catch(error=>{
                     console.log(error)
@@ -56,7 +56,7 @@
 
 <template>
    <!-- TODO: make use of the 'blog-post' component to display the blog posts -->
-    <BlogPost v-for="x in posts"
+    <BlogPost v-for="x in this.posts"
     :subject="x.subject"
     :entry="x.entry"
     :mood=x.mood
