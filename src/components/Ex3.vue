@@ -1,6 +1,6 @@
 <script setup>
     // Import BlogPost component
-    import blogPost from './subcomponents/BlogPost2.vue'
+    import BlogPost from './subcomponents/BlogPost2.vue'
 	import axios from 'axios'
 </script>
 
@@ -21,6 +21,9 @@
                 }
             }
         },
+        components:{
+            BlogPost
+        },
         created() { // created is a hook that executes as soon as Vue instance is created
             axios.get(`${this.baseUrl}/posts`)
             .then(response => {
@@ -35,6 +38,17 @@
         methods: {
             deletePost(id) {
                 // TODO: Complete the delete method
+                axios.get(`${this.baseUrl}/deletePost`,{
+                    params:{id:id}
+                    }
+                )
+                .then(response=>{
+                    console.log(response.data.message)
+                    this.post=this.posts.filter(post=>post.id!=id)
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
             }
         }
     }
@@ -42,6 +56,14 @@
 
 <template>
    <!-- TODO: make use of the 'blog-post' component to display the blog posts -->
+    <BlogPost v-for="x in posts"
+    :subject="x.subject"
+    :entry="x.entry"
+    :mood=x.mood
+    :key="x.id"
+    >
+    <button class="btn btn-primary" @click="deletePost(x.id)">Delete</button>
+    </BlogPost>
 
 </template>
 
