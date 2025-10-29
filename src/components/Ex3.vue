@@ -44,7 +44,7 @@
                 )
                 .then(response=>{
                     console.log(response.data.message)
-                    this.post=this.posts.filter(post=>post.id!=id)
+                    this.posts=this.posts.filter(post=>post.id!=id)
                 })
                 .catch(error=>{
                     console.log(error)

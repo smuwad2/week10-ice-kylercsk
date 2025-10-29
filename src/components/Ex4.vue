@@ -13,10 +13,14 @@ import TaskTracker from './subcomponents/TaskTracker.vue';
                 this.taskList.push( { 'desc': this.desc, 'deadline': this.deadline } )
                 this.desc = ''
                 this.deadline = ''
+                console.log(this.taskList)
             },
             // TODO: Add a new method, to delete a task completed
             rdelete(index){
                 this.taskList.splice(index,1)
+                console.log(this.taskList)
+
+                
             }
             
         },
@@ -41,7 +45,7 @@ import TaskTracker from './subcomponents/TaskTracker.vue';
     <hr>
 
     <!-- TODO: Modify following code -->
-                    <task-tracker v-for="(item,index) in taskList"
+                    <task-tracker v-for="(item,index) in this.taskList"
                     :task="item"
                     :idx="index"
                     v-on:rdelete="rdelete"
