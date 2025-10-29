@@ -41,19 +41,13 @@ import TaskTracker from './subcomponents/TaskTracker.vue';
     <hr>
 
     <!-- TODO: Modify following code -->
-        <div class="container-fluid">
-            <div class="row">
-                <div v-for="(item,index) in taskList" class="col-4"
-                :key=index>
-                    <task-tracker 
+                    <task-tracker v-for="(item,index) in taskList"
                     :task="item"
                     :idx="index"
                     v-on:rdelete="rdelete"
+                    :key=index
                     >
                     </task-tracker>
-                </div>
-            </div>
-        </div>
 
 </template>
 

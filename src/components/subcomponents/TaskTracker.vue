@@ -17,10 +17,10 @@
 
 <template>
     <!-- TODO: add your template code here --> 
-<div class="card w-100 h-100">
+<div class="card" style="width: 18rem;">
     <div class="card-body">
-    <h5 class="card-title fw-bold"><span>Deadline:</span>{{ task.desc }}</h5>
-    <p class="card-text"> {{ task.deadline }} </p>
+    <h5 class="card-title fw-bold"><span>Deadline:</span>{{ task.deadline }}</h5>
+    <p class="card-text"> {{ task.desc }} </p>
     <button class="btn btn-primary" @click="$emit('rdelete',idx)">Done</button>
 
   </div>
